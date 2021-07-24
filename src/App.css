@@ -1,5 +1,14 @@
+:root {
+  --darkBlue: 'hsl(209, 23%, 22%)';
+  --vDarkBlueDBg: 'hsl(207, 26%, 17%)';
+  --vDarkBlueLtxt: 'hsl(200, 15%, 8%)';
+  --darkGrayLmInput: 'hsl(0, 0%, 52%)';
+  --vLightGrayBg: 'hsl(0, 0%, 98%)';
+  --white: 'hsl(0, 0%, 100%)'
+}
+
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -12,27 +21,20 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container {
+  width: 100%;
+  max-width: 1440px;
+  height: 100%;
+  margin: auto;
+}
+.container header {
+  padding: 40px;
 }
 
-.App-link {
-  color: #61dafb;
+.content {
+  padding: 40px;
+  height: 100%;
+  background-color:var(--vDarkBlueDBg)
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
