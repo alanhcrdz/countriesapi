@@ -1,0 +1,67 @@
+.contentWrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.button {
+    margin-bottom: 20px;
+    display: flex;
+    border-radius: 8px;
+    cursor: pointer;
+    justify-content: space-around;
+    width: 100px;
+    padding: 12px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #000;
+}
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+}
+
+.countryFlag {
+    box-shadow: 2px 2px 6px #000;
+    width: 100%;
+    height: 400px;
+    flex: 5;
+}
+.countryFlag img {
+    width: 100%;
+    height: 100%;
+}
+.details {
+    flex: 5;
+    height: 100%;
+    padding: 40px;
+}
+
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 30px;
+}
+.list ul {
+    list-style-type: none;
+}
+.list ul li {
+    line-height: 25px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.list ul li > span, .border span {
+    font-weight: 400;
+}
+.border ul {
+    list-style: none;
+    font-weight: 600;
+
+}
+.border span {
+   /*  background-color: purple; */
+}

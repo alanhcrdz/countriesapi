@@ -1,5 +1,6 @@
 import './App.css';
-import CardComponent from './components/CardComponent';
+import Routes from './routes/routes';
+import { ContextProvider } from './hooks/useDataContext';
 
 function App() {
   return (
@@ -8,9 +9,11 @@ function App() {
       <header>
       <h2>Where in World?</h2>
       </header>
-        <main className="content">
-            <CardComponent />
 
+        <main className="content">
+          <ContextProvider>
+            <Routes />
+          </ContextProvider>
         </main>
 
       </div>

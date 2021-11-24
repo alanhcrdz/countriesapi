@@ -1,56 +1,29 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactLoading from 'react-loading';
 import './CardComponent.css';
-import api from '../services/api';
 import { Regions } from './Regions';
+import { 
+     Link,
+     } from 'react-router-dom';
+import { useDataContext } from '../hooks/useDataContext';
 
 const CardComponent = () => {
-    const [countries, setCountries] = useState([]);
-    const [filteredCountries, setFilteredCountries] = useState([]);
-    const [search, setSearch] = useState('')
-    const [service, setService] = useState('all');
-    const [region, setRegion] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
-        const fetchCountries = async () => {
-            setIsLoading(true)
-            try {
-                await api.get(`/${service}/${region}`)
-                    .then(res => {
-                        setCountries(res.data)
+    const { 
+        filteredCountries, 
+        search, 
+        isLoading,
+        handleChange,
+        handleRegion,
 
-                    });
-            } catch (err) {
-                console.error(err)
-            } finally {
-                setIsLoading(false);
-            }
+     } = useDataContext()
 
-
-        }
-        fetchCountries()
-    }, [service, region])
-
-    const handleChange = (e) => {
-        setSearch(e.target.value)
-    }
-
-    useEffect(() => {
-        setFilteredCountries(countries.filter(country => {
-            return country.name.toLowerCase().includes(search.toLowerCase())
-        }));
-
-    }, [search, countries])
+   
 
 
 
 
-    const handleRegion = (e) => {
-        setService('region');
-        setRegion(e.target.value);
-    }
 
     return (
         <>
@@ -93,10 +66,10 @@ const CardComponent = () => {
                         <div className="cardContainer">
                         {filteredCountries
                             .map(country => (
-
-                                <div className="cards" key={country.alpha2Code}>
+                                <Link className="link" to={{ pathname: `/country/${country.name.toLowerCase()}`, state: { countries: country } }}>
+                                <div className="cards" key={country.cca2}>
                                     <div className="flag">
-                                        <img src={country.flag} alt={country.flag} />
+                                        <img src={country.flag} alt={country.alpha2Code} />
                                     </div>
 
 
@@ -108,6 +81,7 @@ const CardComponent = () => {
                                     </div>
 
                                 </div>
+                                </Link>
 
                             ))}
                             </div>

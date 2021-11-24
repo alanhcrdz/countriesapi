@@ -37,4 +37,8 @@
   background-color:var(--vDarkBlueDBg)
 }
 
-
+@media screen and (max-width: 375px) {
+  .container h2 {
+    text-align: center;
+  }
+}
